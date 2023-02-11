@@ -1,0 +1,11 @@
+/vendor/
+tests/packages/second-level-indirect-dependency/composer.lock
+tests/packages/second-level-indirect-dependency/vendor
+tests/packages/indirect-dependency/composer.lock
+tests/packages/indirect-dependency/vendor
+tests/packages/direct-dependency/composer.lock
+tests/packages/direct-dependency/vendor
+tests/packages/project/composer.lock
+tests/packages/project/vendor
+.php-cs-fixer.cache
+composer.lock

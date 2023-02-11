@@ -1,0 +1,49 @@
+{
+    "name": "mareknocon/vendor-stability-test",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mareknocon\\VendorStabilityTest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marek Nocoń",
+            "email": "mnocon@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "mareknocon/composer-vendor-stability": "~1.0@dev",
+        "mareknocon/direct-dependency": "~1.0@dev",
+        "symfony/string": "^5.4"
+    },
+    "repositories": {
+        "plugin": {
+            "type": "path",
+            "url": "../../.."
+        },
+        "direct-dependency": {
+            "type": "path",
+            "url": "../direct-dependency"
+        },
+        "second-level-indirect-dependency": {
+            "type": "path",
+            "url": "../second-level-indirect-dependency"
+        },
+        "indirect-dependency": {
+            "type": "path",
+            "url": "../indirect-dependency"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "mareknocon/composer-vendor-stability": true
+        }
+    },
+    "extra": {
+        "minimum-stability": {
+            "mareknocon": "dev"
+        }
+    }
+}

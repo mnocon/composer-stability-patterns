@@ -1,0 +1,9 @@
+includes:
+    - vendor/phpstan/phpstan-symfony/extension.neon
+    - vendor/composer/composer/phpstan/rules.neon
+
+parameters:
+    level: max
+    paths:
+        - src
+    treatPhpDocTypesAsCertain: false

@@ -1,0 +1,21 @@
+{
+    "name": "mareknocon/second-level-indirect-dependency",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mareknocon\\VendorStabilityTest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marek Nocoń",
+            "email": "mnocon@users.noreply.github.com"
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    }
+}

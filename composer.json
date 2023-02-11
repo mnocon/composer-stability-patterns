@@ -1,0 +1,39 @@
+{
+    "name": "mareknocon/composer-vendor-stability",
+    "description": "Per-vendor package stability for Composer",
+    "type": "composer-plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "MarekNocon\\ComposerVendorStability\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marek Nocoń",
+            "email": "mnocon@users.noreply.github.com"
+        }
+    ],
+    "require-dev": {
+        "composer/composer": "^2.5",
+        "phpstan/phpstan": "^1.9",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "ibexa/code-style": "^1.0",
+        "phpstan/phpstan-symfony": "^1.0"
+    },
+    "scripts": {
+        "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
+        "check-cs": "@fix-cs --dry-run",
+        "lint": "phpstan"
+    },
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "composer-plugin-api": "^2.3"
+    },
+    "extra": {
+        "class": "MarekNocon\\ComposerVendorStability\\VendorStabilityPlugin",
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    }
+}
