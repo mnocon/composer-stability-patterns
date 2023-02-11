@@ -9,3 +9,4 @@ tests/packages/project/composer.lock
 tests/packages/project/vendor
 .php-cs-fixer.cache
 composer.lock
+.phpunit.cache

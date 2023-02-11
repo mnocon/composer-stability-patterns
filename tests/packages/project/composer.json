@@ -15,8 +15,7 @@
     ],
     "require": {
         "mareknocon/composer-vendor-stability": "~1.0@dev",
-        "mareknocon/direct-dependency": "~1.0@dev",
-        "symfony/string": "^5.4"
+        "mareknocon/direct-dependency": "~1.0@dev"
     },
     "repositories": {
         "plugin": {
