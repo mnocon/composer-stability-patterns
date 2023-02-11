@@ -1,0 +1,40 @@
+{
+    "installed": [
+        {
+            "name": "mareknocon/composer-vendor-stability",
+            "direct-dependency": true,
+            "homepage": null,
+            "source": null,
+            "version": "dev-main",
+            "description": "Per-vendor package stability for Composer",
+            "abandoned": false
+        },
+        {
+            "name": "mareknocon/direct-dependency",
+            "direct-dependency": true,
+            "homepage": null,
+            "source": null,
+            "version": "dev-main",
+            "description": null,
+            "abandoned": false
+        },
+        {
+            "name": "mareknocon/indirect-dependency",
+            "direct-dependency": false,
+            "homepage": null,
+            "source": null,
+            "version": "dev-main",
+            "description": null,
+            "abandoned": false
+        },
+        {
+            "name": "mareknocon/second-level-indirect-dependency",
+            "direct-dependency": false,
+            "homepage": null,
+            "source": null,
+            "version": "dev-main",
+            "description": null,
+            "abandoned": false
+        }
+    ]
+}

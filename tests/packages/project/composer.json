@@ -42,7 +42,7 @@
     },
     "extra": {
         "minimum-stability": {
-            "mareknocon": "dev"
+            "mareknocon/*": "dev"
         }
     }
 }

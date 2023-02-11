@@ -33,7 +33,7 @@
         "check-cs": "@fix-cs --dry-run",
         "phpstan": "phpstan",
         "test-unit": "phpunit",
-        "test-integration": "integration",
+        "test-integration": "tests/integration",
         "test": [
             "@test-unit",
             "@test-integration"

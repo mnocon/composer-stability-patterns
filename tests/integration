@@ -1,0 +1,45 @@
+#!/bin/bash
+
+set -e
+
+verify_files() {
+    if ! cmp -s "$1" "$2"; then
+        echo ">>>> Files do not match!"
+        echo "Expected:"
+        cat "$1"
+        echo "Actual"
+        cat "$2"
+        exit 1
+    fi
+}
+
+run_tests() {
+    echo "> Running integration tests"
+
+    cd tests/packages || exit 1
+
+    projects=("second-level-indirect-dependency" "indirect-dependency" "direct-dependency" "project")
+
+    for project in "${projects[@]}"; do
+    cd "$project"
+    echo ">> Verifying $project"
+
+    echo ">>> Running composer update"
+    composer update --no-interaction --quiet
+    composer show --format=json > update_actual.json
+    verify_files update_expected.json update_actual.json
+    
+    echo ">>> Running composer install"
+    composer install --no-interaction --quiet
+    composer show --format=json > install_actual.json
+    verify_files install_expected.json install_actual.json
+
+    echo ">> $project passed"
+
+    cd - > /dev/null
+    done
+
+    echo "Tests passed!"
+}
+
+run_tests

@@ -1,0 +1,13 @@
+{
+    "installed": [
+        {
+            "name": "mareknocon/second-level-indirect-dependency",
+            "direct-dependency": true,
+            "homepage": null,
+            "source": null,
+            "version": "dev-main",
+            "description": null,
+            "abandoned": false
+        }
+    ]
+}
