@@ -1,16 +1,16 @@
 {
-    "name": "mareknocon/composer-vendor-stability",
-    "description": "Per-vendor package stability for Composer",
+    "name": "mareknocon/composer-stability-patterns",
+    "description": "Specify Composer's minimum stability using patterns",
     "type": "composer-plugin",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "MarekNocon\\ComposerVendorStability\\": "src/"
+            "MarekNocon\\ComposerStabilityPatterns\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MarekNocon\\Tests\\ComposerVendorStability\\": "tests/unit"
+            "MarekNocon\\Tests\\ComposerStabilityPatterns\\": "tests/unit"
         }
     },
     "authors": [
@@ -44,7 +44,7 @@
         "composer-plugin-api": "^2.3"
     },
     "extra": {
-        "class": "MarekNocon\\ComposerVendorStability\\VendorStabilityPlugin",
+        "class": "MarekNocon\\ComposerStabilityPatterns\\StabilityPatternsPlugin",
         "branch-alias": {
             "dev-main": "1.0.x-dev"
         }

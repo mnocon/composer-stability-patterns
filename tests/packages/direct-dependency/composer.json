@@ -4,7 +4,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Mareknocon\\VendorStabilityTest\\": "src/"
+            "Mareknocon\\StabilityPatternsTest\\": "src/"
         }
     },
     "authors": [
@@ -17,7 +17,7 @@
         "mareknocon/indirect-dependency": "~1.0@dev"
     },
     "require-dev": {
-        "mareknocon/composer-vendor-stability": "~1.0@dev"
+        "mareknocon/composer-stability-patterns": "~1.0@dev"
     },
     "repositories": {
         "plugin": {
@@ -35,7 +35,7 @@
     },
     "config": {
         "allow-plugins": {
-            "mareknocon/composer-vendor-stability": true
+            "mareknocon/composer-stability-patterns": true
         }
     },
     "extra": {
@@ -46,5 +46,5 @@
             "mareknocon/*": "dev"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }

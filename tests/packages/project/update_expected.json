@@ -1,12 +1,12 @@
 {
     "installed": [
         {
-            "name": "mareknocon/composer-vendor-stability",
+            "name": "mareknocon/composer-stability-patterns",
             "direct-dependency": true,
             "homepage": null,
             "source": null,
             "version": "dev-main",
-            "description": "Per-vendor package stability for Composer",
+            "description": "Specify Composer's minimum stability using patterns",
             "abandoned": false
         },
         {
