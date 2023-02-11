@@ -1,10 +1,10 @@
 {
-    "name": "mareknocon/vendor-stability-test",
+    "name": "mareknocon/pattern-stability-test",
     "type": "project",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Mareknocon\\VendorStabilityTest\\": "src/"
+            "Mareknocon\\StabilityPatternsTest\\": "src/"
         }
     },
     "authors": [
@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "mareknocon/composer-vendor-stability": "~1.0@dev",
+        "mareknocon/composer-stability-patterns": "~1.0@dev",
         "mareknocon/direct-dependency": "~1.0@dev"
     },
     "repositories": {
@@ -37,12 +37,13 @@
     },
     "config": {
         "allow-plugins": {
-            "mareknocon/composer-vendor-stability": true
+            "mareknocon/composer-stability-patterns": true
         }
     },
     "extra": {
         "minimum-stability": {
             "mareknocon/*": "dev"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }

@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace MarekNocon\Tests\ComposerVendorStability\Filter;
+namespace MarekNocon\Tests\ComposerStabilityPatterns\Filter;
 
 use Composer\Package\BasePackage;
 use Composer\Package\Package;
-use MarekNocon\ComposerVendorStability\Filter\PackageStabilityFilter;
+use MarekNocon\ComposerStabilityPatterns\Filter\PackageStabilityFilter;
 use PHPUnit\Framework\TestCase;
 
 class PackageStabilityFilterTest extends TestCase
@@ -14,7 +14,7 @@ class PackageStabilityFilterTest extends TestCase
      * @param array<string, int> $stabilityFlags
      *
      * @dataProvider providerFor_testPackageMinimumStability
-     * @dataProvider providerFor_testVendorMinimumStability
+     * @dataProvider providerFor_testPatternMinimumStability
      * @dataProvider providerFor_testGlobalMinimumStability
      */
     public function testMatchesStabilityConstraint(
@@ -80,7 +80,7 @@ class PackageStabilityFilterTest extends TestCase
         ];
     }
 
-    public static function providerFor_testVendorMinimumStability(): array
+    public static function providerFor_testPatternMinimumStability(): array
     {
         return [
             [self::createPackage('mareknocon/package', '1.0.0'), [], ['mareknocon/package' => 'dev'], 'stable', true],

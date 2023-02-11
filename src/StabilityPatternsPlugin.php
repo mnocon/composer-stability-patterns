@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MarekNocon\ComposerVendorStability;
+namespace MarekNocon\ComposerStabilityPatterns;
 
 use Composer\Composer;
 use Composer\EventDispatcher\EventSubscriberInterface;
@@ -8,11 +8,9 @@ use Composer\IO\IOInterface;
 use Composer\Plugin\PluginEvents;
 use Composer\Plugin\PluginInterface;
 use Composer\Plugin\PrePoolCreateEvent;
-use Composer\Script\Event;
-use Composer\Script\ScriptEvents;
-use MarekNocon\ComposerVendorStability\Filter\PackageStabilityFilter;
+use MarekNocon\ComposerStabilityPatterns\Filter\PackageStabilityFilter;
 
-class VendorStabilityPlugin implements PluginInterface, EventSubscriberInterface
+class StabilityPatternsPlugin implements PluginInterface, EventSubscriberInterface
 {
     /** @var array<string, string> */
     private array $stabilityConfig;
@@ -21,10 +19,21 @@ class VendorStabilityPlugin implements PluginInterface, EventSubscriberInterface
 
     public function activate(Composer $composer, IOInterface $io): void
     {
+        if ($io->isVerbose()) {
+            $io->debug('Activating StabilityPatterns plugin');
+        }
+        $basePackage = $composer->getPackage();
+        $this->stabilityConfig = $basePackage->getExtra()['minimum-stability'] ?? [];
+        $this->minimumStability = $basePackage->getMinimumStability();
+        $basePackage->setMinimumStability('dev');
     }
 
     public function deactivate(Composer $composer, IOInterface $io): void
     {
+        if ($io->isVerbose()) {
+            $io->debug('Deactivating StabilityPatterns plugin');
+        }
+        $composer->getPackage()->setMinimumStability($this->minimumStability);
     }
 
     public function uninstall(Composer $composer, IOInterface $io): void
@@ -37,19 +46,8 @@ class VendorStabilityPlugin implements PluginInterface, EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            ScriptEvents::PRE_UPDATE_CMD => 'setup',
-            ScriptEvents::PRE_INSTALL_CMD => 'setup',
             PluginEvents::PRE_POOL_CREATE => 'filterPackagePool',
         ];
-    }
-
-    public function setup(Event $event): void
-    {
-        $basePackage = $event->getComposer()->getPackage();
-
-        $this->stabilityConfig = $basePackage->getExtra()['minimum-stability'] ?? [];
-        $this->minimumStability = $basePackage->getMinimumStability();
-        $basePackage->setMinimumStability('dev');
     }
 
     public function filterPackagePool(PrePoolCreateEvent $event): void

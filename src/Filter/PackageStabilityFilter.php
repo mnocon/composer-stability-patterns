@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MarekNocon\ComposerVendorStability\Filter;
+namespace MarekNocon\ComposerStabilityPatterns\Filter;
 
 use Composer\Package\BasePackage;
 use Composer\Package\Version\VersionParser;
@@ -26,12 +26,12 @@ class PackageStabilityFilter
             return $packageStabilityLevel <= $stabilityFlags[$packageName];
         }
 
-        // then we match against the vendor stability level
+        // then we match against the patern stability level
         foreach ($stabilityConfig as $pattern => $stability) {
             if (Preg::isMatch(BasePackage::packageNameToRegexp($pattern), $packageName)) {
-                $vendorStabilityLevel = $this->getStabilityLevel($stability);
+                $StabilityPatternsLevel = $this->getStabilityLevel($stability);
 
-                return $this->getStabilityLevel($package->getStability()) <= $vendorStabilityLevel;
+                return $this->getStabilityLevel($package->getStability()) <= $StabilityPatternsLevel;
             }
         }
 

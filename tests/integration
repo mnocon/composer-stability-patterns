@@ -23,6 +23,7 @@ run_tests() {
     for project in "${projects[@]}"; do
     cd "$project"
     echo ">> Verifying $project"
+    rm -rf vendor composer.lock update_actual.json install_actual.json
 
     echo ">>> Running composer update"
     composer update --no-interaction --quiet
