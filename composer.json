@@ -26,14 +26,14 @@
         "ibexa/code-style": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0",
         "phpstan/phpstan-symfony": "^1.0",
-        "phpunit/phpunit": "^10"
+        "phpunit/phpunit": "^9.6 || ^10"
     },
     "scripts": {
         "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
         "check-cs": "@fix-cs --dry-run",
         "phpstan": "phpstan",
         "test-unit": "phpunit",
-        "test-intgeration": "integration",
+        "test-integration": "integration",
         "test": [
             "@test-unit",
             "@test-integration"
