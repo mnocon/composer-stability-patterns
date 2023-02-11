@@ -1,0 +1,6 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Property MarekNocon\\\\ComposerVendorStability\\\\VendorStabilityPlugin\\:\\:\\$stabilityConfig \\(array\\<string, string\\>\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/VendorStabilityPlugin.php

@@ -37,17 +37,19 @@ class VendorStabilityPlugin implements PluginInterface, EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            ScriptEvents::PRE_UPDATE_CMD => 'getConfig',
-            ScriptEvents::PRE_INSTALL_CMD => 'getConfig',
+            ScriptEvents::PRE_UPDATE_CMD => 'setup',
+            ScriptEvents::PRE_INSTALL_CMD => 'setup',
             PluginEvents::PRE_POOL_CREATE => 'filterPackagePool',
         ];
     }
 
-    public function getConfig(Event $event): void
+    public function setup(Event $event): void
     {
-        $this->stabilityConfig = $event->getComposer()->getPackage()->getExtra()['minimum-stability'] ?? [];
-        $this->minimumStability = $event->getComposer()->getPackage()->getMinimumStability();
-        $event->getComposer()->getPackage()->setMinimumStability('dev');
+        $basePackage = $event->getComposer()->getPackage();
+
+        $this->stabilityConfig = $basePackage->getExtra()['minimum-stability'] ?? [];
+        $this->minimumStability = $basePackage->getMinimumStability();
+        $basePackage->setMinimumStability('dev');
     }
 
     public function filterPackagePool(PrePoolCreateEvent $event): void
